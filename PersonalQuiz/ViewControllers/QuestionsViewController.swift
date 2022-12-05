@@ -34,7 +34,7 @@ final class QuestionsViewController: UIViewController {
     // MARK: - Private Properties
     private let questions = Question.getQuestions()
     private var answerChosen: [Answer] = []
-    private var questionIndex = 0 // Index of current question
+    private var questionIndex = 0
     
     private var currentAnswers: [Answer] {
         questions[questionIndex].answers
@@ -83,24 +83,17 @@ final class QuestionsViewController: UIViewController {
 // MARK: - User Interface
 extension QuestionsViewController {
     private func updateUI() {
-        // Hide stacks
+
         for stackView in [singleStackView, multipleStackView, rangedStackView] {
             stackView?.isHidden = true
         }
-        
-        // get current question
+
         let currentQuestion = questions[questionIndex]
-        
-        // set current question for question label
         questionLabel.text = currentQuestion.title
-        
-        // set progress for questionProgressView
+
         let totalProgress = Float(questionIndex) / Float(questions.count)
-        
-        // set progress for questionProgressView
         questionProgressView.setProgress(totalProgress, animated: true)
-        
-        // set navigation title
+
         title = "Вопрос № \(questionIndex + 1) из \(questions.count)"
         
         showCurrentAnswers(for: currentQuestion.type)
@@ -150,5 +143,4 @@ extension QuestionsViewController {
         
         performSegue(withIdentifier: "showResult", sender: nil)
     }
-    
 }
