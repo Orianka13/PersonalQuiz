@@ -39,8 +39,6 @@ final class QuestionsViewController: UIViewController {
     private var currentAnswers: [Answer] {
         questions[questionIndex].answers
     }
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
