@@ -14,6 +14,11 @@ class ResultViewController: UIViewController {
     // 3. Отобразить результаты в соотвствии с этим животным
     // 4. Избавиться от кнопки возврата назад на экране результатов
 
+    @IBOutlet var labelWithImage: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
+    
+    var answers: [Answer]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
